@@ -16,6 +16,7 @@ export const fetchBlobs = (account) => {
   return async (dispatch) => {
     try {
       const blobList = await myBb.methods.getBlobsByOwner(account).call();
+
       dispatch(setBlobs(blobList));
     } catch (err) {
       console.error(err);
@@ -28,6 +29,7 @@ export const createBlob = (account, name) => {
     try {
       await myBb.methods.createRandomBlob(name).send({ from: account });
       const blobList = await myBb.methods.getBlobsByOwner(account).call();
+
       dispatch(setBlobs(blobList));
     } catch (err) {
       console.error(err);

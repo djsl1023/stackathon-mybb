@@ -1,14 +1,24 @@
 import React from 'react';
-import { MYBB_ADDRESS, MYBB_ABI } from '../config';
-import Web3 from 'web3';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Blobs = () => {
   const blobsList = useSelector((state) => state.blobs);
-  const web3 = new Web3(Web3.givenProvider || 'http://172.17.176.1:7545');
-  const myBb = new web3.eth.Contract(MYBB_ABI, MYBB_ADDRESS);
-
-  return <div>placeholder</div>;
+  console.log('BLOBLIST:', blobsList);
+  return (
+    <div className="blob-list">
+      {blobsList.map((blobId) => {
+        return (
+          <div className="blob-list-item" key={blobId}>
+            <Link to="/blob/" state={{ blobId: blobId }}>
+              <img src="blobparts/blobbody1.png" />
+            </Link>
+            <div>Bb#{blobId}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Blobs;

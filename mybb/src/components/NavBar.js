@@ -5,13 +5,10 @@ const Navbar = (props) => {
   return (
     <nav>
       <div id="logo">My Blob Buddy</div>
-      <NavLink to="/" activeClassName="active-nav">
-        Home
-      </NavLink>
+      <NavLink to="/">Home</NavLink>
       <NavLink to="/blobs" activeClassName="active-nav">
-        My Blobs
+        All Known Blobs
       </NavLink>
-      {/* </div> */}
     </nav>
   );
 };

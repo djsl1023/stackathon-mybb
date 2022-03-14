@@ -18,12 +18,11 @@ const Routes = () => {
   }, []);
 
   return (
-    <div>
+    <div className="routes-container">
       {account === '' ? (
         <p>Please install metamask!</p>
       ) : (
         <Switch>
-          <Route path="/blobs/" element={<Blobs />}></Route>
           <Route path="/blob/" element={<SingleBlob />}></Route>
           <Route path="/" element={<Home />}></Route>
         </Switch>
