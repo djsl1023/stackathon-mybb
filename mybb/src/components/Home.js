@@ -16,8 +16,8 @@ const Home = () => {
   return (
     <div className="container">
       {blobList.length === 0 ? (
-        <div>
-          <div>Welcome to Blob Buddy! </div>
+        <div className="home-text">
+          <div>Welcome to MyBlobBuddy!</div>
           <div>
             <AddBlob />
           </div>

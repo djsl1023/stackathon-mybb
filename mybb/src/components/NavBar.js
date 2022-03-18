@@ -4,11 +4,9 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = (props) => {
   return (
     <nav>
-      <div id="logo">My Blob Buddy</div>
+      <div id="logo">MyBb</div>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/blobs" activeClassName="active-nav">
-        All Known Blobs
-      </NavLink>
+      <NavLink to="/AllBlobs">All Known Blobs</NavLink>
     </nav>
   );
 };

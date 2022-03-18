@@ -7,6 +7,7 @@ import { Routes as Switch, Route } from 'react-router-dom';
 import Blobs from './components/Blobs';
 import SingleBlob from './components/SingleBlob';
 import Home from './components/Home';
+import AllBlobs from './components/AllBlobs';
 
 const Routes = () => {
   const account = useSelector((state) => state.account);
@@ -23,6 +24,7 @@ const Routes = () => {
         <p>Please install metamask!</p>
       ) : (
         <Switch>
+          <Route path="/AllBlobs" element={<AllBlobs />}></Route>
           <Route path="/blob/" element={<SingleBlob />}></Route>
           <Route path="/" element={<Home />}></Route>
         </Switch>

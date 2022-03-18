@@ -11,19 +11,21 @@ const AddBlob = () => {
   const handleSubmit = () => {
     setIsLoading(1);
     dispatch(createBlob(account, blobName));
-    setIsLoading(2);
   };
   return isLoading === 1 ? (
-    <div>Blob Creation in Process....</div>
+    <div>
+      <div>Follow The Metamask instructions to complete creation!</div>
+      <div>Then, click home to see your new buddy!</div>
+    </div>
   ) : isLoading === 2 ? (
     <div>Success!!</div>
   ) : (
     <div>
-      <div>Blob Creation Form</div>
+      <div>Enter Your First Blob's Name Here!</div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Your Blob's Name Here!"
+          placeholder="Ex: BlobbyFlay"
           onChange={(e) => setBlobName(e.target.value)}
           value={blobName || ''}></input>
       </form>

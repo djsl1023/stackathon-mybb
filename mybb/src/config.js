@@ -1,4 +1,4 @@
-export const MYBB_ADDRESS = '0x207d7ec2c182b777d63cbc875c37ac0d89915bff';
+export const MYBB_ADDRESS = '0x804afB365E4fb2810Cfe86Ca34fF1b92650C7392';
 
 export const MYBB_ABI = [
   {
@@ -197,6 +197,20 @@ export const MYBB_ABI = [
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getBlobCount',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true,
   },
   {
     inputs: [

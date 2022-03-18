@@ -88,7 +88,7 @@ contract myBb is Ownable, ERC721{
 
   uint dnaDigits = 16;
   uint dnaModulus = 10 ** dnaDigits;
-  uint cooldownTime = 10 seconds;
+  uint cooldownTime = 1 seconds;
 
   struct Blob{
     string name;
@@ -101,6 +101,9 @@ contract myBb is Ownable, ERC721{
   mapping (uint => address) public blobToOwner;
   mapping (address => uint) ownerBlobCount;
 
+  function getBlobCount() public view returns (uint) {
+    return blobs.length;
+}
   function _createBlob(string memory _name, uint _dna) internal {
     blobs.push(Blob(_name, _dna, 1, uint32(block.timestamp + cooldownTime)));
     uint id = blobs.length - 1;
@@ -138,7 +141,8 @@ contract myBb is Ownable, ERC721{
     require(_isReady(myBlob));
     uint newDna = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % dnaModulus;
     myBlob.dna = newDna;
-    if(myBlob.level == 10){
+    myBlob.level++;
+    if(myBlob.level % 10 == 0){
       _createBlob("NoName", newDna);
     }
     _triggerCooldown(myBlob);
